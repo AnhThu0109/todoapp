@@ -49,15 +49,19 @@ function App() {
         setEditing(false);
     }
 
+    //Cancel edit function
+    const handleCancel = () => {
+        setEditing(false);
+    }
 
   return (
     <div className="App">
-      <h1 className='text-center'>TODO APP</h1>
+      <h1 className='text-center p-3 fw-bolder'>TODO APP</h1>
       {isEditing == true ? (
         <form className='text-center' onSubmit={(e) => handleEdit(e, currentId, editText)}>
         <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)}/>
         <button className='m-2 btn btn-info'>Update</button>
-        <button className='btn btn-danger'>Cancel</button>
+        <button className='btn btn-danger' onClick={handleCancel}>Cancel</button>
         </form>
       ) : (
         <form className='text-center' onSubmit={(e) => handleAddTask(e, value1)}>
