@@ -54,10 +54,22 @@ function App() {
         setEditing(false);
     }
 
+    //Completed task function
+    const handleCompleted = (id) => {
+        tasks.map((item, index) => {
+            if(index === id){
+                item.completed = !item.completed;
+            }
+        });
+        const newCompleteTask = [...tasks];
+        console.log(newCompleteTask);
+        setTasks(newCompleteTask);
+    }
+
   return (
     <div className="App">
       <h1 className='text-center p-3 fw-bolder'>TODO APP</h1>
-      {isEditing == true ? (
+      {isEditing === true ? (
         <form className='text-center' onSubmit={(e) => handleEdit(e, currentId, editText)}>
         <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)}/>
         <button className='m-2 btn btn-info'>Update</button>
@@ -72,9 +84,9 @@ function App() {
       
       <ul className='mx-5'>
         {tasks.map((item, i) => (
-            <li key={i}>
+            <li key={i} className={item.completed === true? "text-decoration-line-through": "text-decoration-none"}>
                 {item.text}
-                    <button className='btn btn-success m-2'>Completed</button>
+                    <button className='btn btn-success m-2' onClick={() => handleCompleted(i)}>Completed</button>
                     <button className='btn btn-primary me-2' onClick={() => handleEditClick(i)}>Edit</button>
                     <button className='btn btn-danger' onClick={() => handleRemove(i)}>Delete</button>
                 </li>
