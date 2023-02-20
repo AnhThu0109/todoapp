@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import "./style.css";
 
 function App() {
     const [tasks, setTasks] = useState([]);
@@ -69,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className='text-center p-3 fw-bolder'>TODO APP</h1>
+      <h1 className='text-center p-3 fw-bolder bg-black text-white'>TODO APP</h1>
       {isEditing === true ? (
         <form className='text-center' onSubmit={(e) => handleEdit(e, currentId, editText)}>
         <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)}/>
@@ -79,12 +80,12 @@ function App() {
       ) : (
         <form className='text-center' onSubmit={(e) => handleAddTask(e, value1)}>
         <input type="text" value={value1} onChange={(e) => setValue1(e.target.value)}/>
-        <button className='m-2 btn btn-info'>Add</button>
+        <button className='m-2 btn btn-info rounded-circle'>Add</button>
         </form> )}
       
       <ul className='mx-5'>
         {tasks.map((item, i) => (
-            <li key={i} className={item.completed === true? "text-decoration-line-through": "text-decoration-none"}>
+            <li key={i} className={item.completed === true? "text-decoration-line-through p-3 ": "text-decoration-none p-3"}>
                 {item.text}
                 <button className='btn btn-success m-2' onClick={() => handleCompleted(i)}>Completed</button>
                 <button className='btn btn-primary me-2' onClick={() => handleEditClick(i)}>Edit</button>
