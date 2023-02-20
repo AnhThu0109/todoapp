@@ -62,6 +62,10 @@ function App() {
       setTasks(newCompleteTask);
   }
 
+  const handleRemoveAll = () => {
+    setTasks([]);
+  }
+
 
   return (
     <div className="App">
@@ -88,6 +92,14 @@ function App() {
             </li>
         ))}
       </ul>
+
+      <div className='mx-5'>
+        {
+          tasks.length > 0 ? (
+            <button className='btn btn-info' onClick={handleRemoveAll}>Remove All</button>
+          ) : (<span></span>)
+        }
+      </div>
     </div>
   );
 }
