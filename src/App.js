@@ -21,11 +21,11 @@ function App() {
         setValue1("");
     }
 
-    //Remove function
-    const handleRemove = (currentId) => {
-      const newTaskList = tasks.filter((item, id) => {return id !== currentId});
-      console.log(newTaskList);
-      setTasks(newTaskList);
+  //Remove function
+  const handleRemove = (currentId) => {
+    const newTaskList = tasks.filter((item, id) => {return id !== currentId});
+    console.log(newTaskList);
+    setTasks(newTaskList);
   }
 
   //Edit function
