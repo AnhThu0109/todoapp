@@ -36,10 +36,6 @@ function App() {
   }
   const handleEdit = (e, id, input) => {
       e.preventDefault();
-      const editTask = {
-          text: input,
-          completed: false
-      }
       tasks.map((item, index) => {
           if(index === id) {
               item.text = input;
