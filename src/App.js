@@ -82,10 +82,10 @@ function App() {
         {tasks.map((item, i) => (
             <li key={i} className={item.completed === true? "text-decoration-line-through": "text-decoration-none"}>
                 {item.text}
-                    <button className='btn btn-success m-2' onClick={() => handleCompleted(i)}>Completed</button>
-                    <button className='btn btn-primary me-2' onClick={() => handleEditClick(i)}>Edit</button>
-                    <button className='btn btn-danger' onClick={() => handleRemove(i)}>Delete</button>
-                </li>
+                <button className='btn btn-success m-2' onClick={() => handleCompleted(i)}>Completed</button>
+                <button className='btn btn-primary me-2' onClick={() => handleEditClick(i)}>Edit</button>
+                <button className='btn btn-danger' onClick={() => handleRemove(i)}>Delete</button>
+            </li>
         ))}
       </ul>
     </div>
